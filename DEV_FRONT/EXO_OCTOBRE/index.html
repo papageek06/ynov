@@ -1,0 +1,161 @@
+<html>
+
+<head>
+    <title>VOTRE PRENOM</title>
+    <style>
+        /* Votre style, ou une stylesheet dédié */
+        .title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            width: 250px;
+        }
+
+        .course-card {
+            border: 1px solid #ccc;
+            padding: 16px;
+            margin: 8px;
+            width: 300px;
+            height: 200px;
+            display: block;
+            overflow: hidden;
+        }
+
+        .texte {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        header {
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 8px;
+        }
+
+        .navbar {
+            background-color: #ee4b81;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            max-width: 150px;
+            max-height: 50px;
+        }
+
+        .courses-container {
+            display: flex;
+            height: 100%;
+        }
+
+        #back-button {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // Copiez-coller ce bout de code en haut de votre balise <script>
+        const coursesData = [
+            {
+                name: 'Créer un SPA en Vanilla JS',
+                description:
+                    "Dans ce cours de création de Single Page Applications (SPA) en Vanilla JavaScript d'une durée de 4 heures, les participants peuvent acquérir une introduction rapide mais instructive aux concepts essentiels du développement d'applications web avancées. Au cours de cette brève formation, les étudiants apprendront à maîtriser les principes de base du JavaScript, y compris la manipulation du Document Object Model (DOM), la gestion des événements, et l'exécution de requêtes HTTP. Cette base solide en JavaScript est cruciale pour la création de SPAs, qui sont des applications web interactives qui offrent une expérience utilisateur fluide sans rechargement de la page.\nPendant le cours, les étudiants se familiariseront avec la structure et la conception d'une SPA en Vanilla JavaScript. Ils apprendront à gérer la navigation, à mettre en place des vues dynamiques, et à manipuler l'état de l'application de manière efficace. Bien que le temps soit limité à 4 heures, les participants auront l'occasion d'explorer les principaux concepts qui sous-tendent les SPAs, tels que le routage, la gestion de l'état côté client, et la communication avec des API externes.\nEn fin de compte, ce cours intensif de création de SPA en Vanilla JavaScript fournira aux étudiants une première exposition aux concepts clés nécessaires pour commencer à développer des SPAs. Cependant, étant donné la durée limitée, il s'agira d'une introduction de base, et les apprenants devront continuer à approfondir leurs connaissances et leurs compétences par la pratique et l'apprentissage continu pour maîtriser pleinement le développement de SPAs plus complexes et sophistiquées.",
+            },
+            {
+                name: 'Apprendre React',
+                description:
+                    "Dans ce cours de React destiné aux débutants, les étudiants acquièrent une solide compréhension des fondamentaux de cette bibliothèque JavaScript largement utilisée pour la création d'interfaces utilisateur interactives. Au cours de ce programme, les participants apprennent d'abord les concepts de base de React, tels que les composants, les propriétés (props), et l'état (state). Ils découvrent comment structurer leur code de manière modulaire en divisant leur application en composants réutilisables, favorisant ainsi la maintenabilité et l'extensibilité du code.\nAu fur et à mesure de leur progression, les apprenants sont initiés à la gestion de l'état des composants et à la communication entre ces derniers. Ils explorent également les avantages de l'utilisation de JSX, une extension de JavaScript qui permet de déclarer les interfaces utilisateur de manière déclarative et intuitive. Les étudiants apprennent à manipuler des événements, à gérer les formulaires, et à effectuer des requêtes HTTP pour interagir avec des API externes. Grâce à des exemples pratiques et des projets guidés, les débutants sont rapidement capables de développer des applications web interactives, jetant ainsi les bases pour leur progression dans le monde du développement front-end.\nEnfin, le cours de React pour débutants aborde les principes de la réactivité et de la mise à jour des composants, en mettant en lumière les notions avancées telles que le cycle de vie des composants et les hooks. Les apprenants découvrent comment gérer les données dynamiques de manière efficace, ce qui leur permet de créer des applications plus complexes et interactives. Ils sont également exposés aux meilleures pratiques de développement, à la gestion des erreurs, et à l'optimisation des performances, ce qui les prépare à devenir des développeurs React compétents et confiants dans la création d'applications web modernes et réactives.",
+            },
+            {
+                name: 'Apprendre Angular',
+                description:
+                    "Dans ce cours d'Angular destiné aux débutants, les étudiants se familiarisent avec ce puissant framework JavaScript développé par Google, qui est largement utilisé pour la création d'applications web modernes. Le cours commence par une introduction aux concepts clés d'Angular, notamment les composants, les modules, et les directives. Les apprenants découvrent comment structurer une application Angular de manière modulaire et apprennent à créer des composants réutilisables qui forment l'ossature de l'application. Ils explorent également le système de gestion de l'état et de la navigation d'Angular, ainsi que les fondamentaux de la liaison de données bidirectionnelle.\nAu fur et à mesure de leur progression, les étudiants se plongent dans les fonctionnalités avancées d'Angular, telles que la gestion des formulaires, la communication avec des services externes via des appels HTTP, et la mise en place de routage pour la navigation à l'intérieur de l'application. Les débutants apprennent à utiliser le système de dépendances d'Angular pour l'injection de dépendances, ce qui favorise la réutilisation du code et la facilité de test. Ils explorent également les aspects de la sécurité, l'authentification, et l'autorisation dans le contexte d'une application Angular, préparant ainsi les apprenants à développer des applications web sécurisées et robustes.\nEnfin, le cours d'Angular pour débutants met l'accent sur les meilleures pratiques de développement, les techniques de débogage, l'optimisation des performances, et l'accessibilité, ce qui permet aux étudiants de créer des applications web professionnelles et hautement performantes. En acquérant une compréhension approfondie d'Angular, les débutants sont prêts à se lancer dans le monde du développement front-end et à contribuer de manière significative à la création d'applications web modernes et réactives.",
+            },
+        ]
+
+        // Fonction utilitaire pour créer des éléments avec des attributs et des enfants
+        function createElement(tag, attributes = {}, children = []) {
+            const element = document.createElement(tag)
+            for (const key in attributes) {
+                element[key] = attributes[key]
+            }
+            children.forEach((child) => element.appendChild(child))
+            return element
+        }
+        // Création de la barre de navigation avec le logo fix au page
+
+        const logo = createElement('img', { src: 'logo_ynov.png', alt: 'Logo Ynov', className: 'logo' })
+        const nav = createElement('nav', { className: 'navbar' }, [logo])
+        document.body.append(nav)
+
+
+        // Conteneur principal pour les cours
+        const section = createElement('section', { className: 'main-section' }, [])
+        document.body.appendChild(section)
+        const titre = createElement('h2', { className: 'titre' }, [])
+        titre.textContent = 'Les cours du module web avancé'
+        section.appendChild(titre)
+        const coursesContainer = createElement('div', { className: 'courses-container' })
+        section.appendChild(coursesContainer)
+
+
+        // Parcourt les données por les afficher et ajoute des ids aux boutons
+        for (let i = 0; i < coursesData.length; i++) {
+            const cour = coursesData[i]
+            const card = createElement('div', { className: 'course-card' })
+            const header = createElement('header', { className: 'title' })
+            const textContent = createElement('p', { className: 'texte' })
+            const button = createElement('button')
+
+            header.textContent = cour.name
+            textContent.textContent = cour.description
+            button.textContent = 'Voir le cours'
+            button.id = i
+
+            const appWrapper = createElement('div', { className: 'course-wrapper' }, [header, textContent, button])
+            card.append(appWrapper)
+            coursesContainer.append(card)
+
+
+
+
+        }
+
+        
+        //  afficher uniquement ce cours lorsqu'on clique
+        coursesContainer.addEventListener('click', (event) => {
+            const target = event.target.id
+            section.remove()
+            const button = createElement('button', { id: 'back-button' })
+            button.textContent = '< Retour aux cours'
+
+
+            const cour = coursesData[target]
+            const header = createElement('header')
+            const textContent = createElement('p')
+            const singleCourse = createElement('div', {}, [button, header, textContent])
+            header.textContent = cour.name
+            textContent.textContent = cour.description
+            singleCourse.append(header, textContent)
+            singleCourse.classList.add('single')
+            document.body.appendChild(singleCourse)
+        })
+
+        // Retour aux cours
+        document.body.addEventListener('click', (event) => {
+            if (event.target.id === 'back-button') {
+                document.body.querySelector('.single').remove()
+                document.body.appendChild(section)
+            }
+        })
+    </script>
+</body>
+
+</html>
